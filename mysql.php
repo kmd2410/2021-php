@@ -84,6 +84,9 @@
     => UPDATE 테이블명 SET 컬럼명1 = 변경할 값1,컬럼명2 = 변경할 값2 WHERE 컬럼명=값;
         콤마를 사용하여 여러개의 값 변경
 
+        UPDATE A SET a-1 = a-2 WHERE a-1 = a-3;
+        : A테이블에 a-1컬럼안에 a-3벨류가 들어있는 애를 a-2로 변경하겠다.
+
     4. DELETE : 데이터 삭제
     => DELETE from 테이블명;
     => DELETE from 테이블명 WHERE 컬럼명=값;
