@@ -5,10 +5,6 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
 
-    echo $id;
-    echo $pw;
-    
-
     if ($pw != $pwc){
         echo "비밀번호와 비밀번호 확인이 서로 다릅니다.";
         echo "<a href=singUp.html>back page</a>";

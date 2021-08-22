@@ -12,15 +12,16 @@
     mysql_fetch_assoc() : 필드명(열이름,키값)을 통해 접근
     mysql_fetch_array() : 위 2개 접근법 모두 사용
 
-    ★DB연동
-    $host = "";
-    $username = "";
-    $password = "";
-    $dbname = "";
-    $port = "";
-
+    ★ DB 연동
     $con = mysqli_connect("$host", "$username", "$password", "$dbname","$port");
+    ★ DB 오류 원인
+    mysqli_connect_error();
+    ★ DB 종료
+    mysqli_close();
+    ★ 사용할 DB선택
+    mysqli_select_db();
 
+    ★ QUERY 명령
     $sql  = "
         INSERT INTO :table name (
             test1,
@@ -30,17 +31,21 @@
             'test','test','test'
         )";
     $result = mysqli_query($con, $sql);
-    
+    $result = $con->query($sql)
+
     if($result === false){
         echo mysqli_error($conn);
     }
-    $result = $con->query($sql)
     $result->fetch_array();
-
+    ★ 결과 몇개의 행인이 확인
+    mysqli_num_rows();
 
 
     ★html 값 php로 넘기기
     $id = $_POST['id'] : html에서 name id로 되있는 값 저장 form action에 반드시 해당 php연동
+    $password = $_POST["password"];
+    $password = password_hash($password, PASSWORD_DEFAULT); //패스워드는 암호화하기
+    //암호화한건 password_verify()로 복화해서 비교해야함
     
     ★PDO
     $con = new PDO("mysql:host={$host};port=3307;dbname={$dbname};charset=utf8",$username, $password);
