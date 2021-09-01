@@ -1,12 +1,13 @@
-<?
+<?  
+    // header("Content-Type: application/json");
     include_once("../common.php");
-
+    
     $id = $_POST['id'];
     $pv = $_POST['pv'];
     $pb = $_POST['pb'];
     $code = $_POST['code'];
     $email = $_POST['email'];
-
+    // echo json_encode($data, JSON_UNESCAPED_UNICODE);
     $ids = $id.'y';
 
     // $sql = "INSERT INTO `taehee`(`tbw_mb_id`,`tbw_pv`,`tbw_pb`,`tbw_mb_code`,`tbw_mb_email`) VALUES('$id','$pv','$pb','$code','$email')";
@@ -14,12 +15,12 @@
     // REPLACE INTO : 중복시 신규 삭제 새로 업뎃
     // ON DUPLICATE UPDATE : 중복시 새로운값 설정
 
-    if(trim($id) == NULL || trim($pv) == NULL || trim($pb) == NULL || trim($code) == NULL || trim($email) == NULL){
-        //echo "<script language=javascript> alert('모두 입력 해주세요'); history.back(-1);</script>";
-        // echo "<a href='insert.php'>뒤로가기</a>";
-        ALERT('모두 입력 해주세요.', G5_URL.'/a_taehee/insert.php');
-        exit();
-    }
+    // if(trim($id) == NULL || trim($pv) == NULL || trim($pb) == NULL || trim($code) == NULL || trim($email) == NULL){
+    //     //echo "<script language=javascript> alert('모두 입력 해주세요'); history.back(-1);</script>";
+    //     // echo "<a href='insert.php'>뒤로가기</a>";
+    //     ALERT('모두 입력 해주세요.');
+    //     exit();
+    // }
 
     $sql_select = "SELECT * FROM `taehee` WHERE `tbw_mb_id`=$id ";
     // $sql_select_s = "SELECT tbw_mb_id as aa FROM `taehee` WHERE `tbw_mb_id`=$id ";
