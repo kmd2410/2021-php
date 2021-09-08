@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button class="button1">위도 경도<br>확인하기</button>
+    <button class="button2">앱 로딩<br>실행하기</button>
+</body>
+
+
+</html>
+
+<script language="JavaScript">
+    let btn1 = document.getElementsByClassName("button1")[0];
+    let btn2 = document.getElementsByClassName("button2")[0];
+
+    btn1.onclick = function(){
+        // window.Android.openApp();
+        if(window.MyApp && window.MyApp.callMessage){ 
+            // 해당 브라우저에 MyApp이라는 브릿지가 있고 그 브릿지에 callMessage라는 함수가 있는 경우 호출 
+            window.MyApp.callMessage(); 
+        }else{ 
+            alert("해당 기능은 어플에서만 이용 가능합니다.");
+    }
+    }
+
+    btn2.onclick = function(){
+
+    }
+</script>

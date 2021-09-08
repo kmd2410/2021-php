@@ -107,4 +107,16 @@
     $data = mysqli_fetch_array($result);
     $data = $result->fetch_array(MYSQLI_ASSOC);
 
+    ★
+    *strpos : 텍스트 내에서 해당 문자가 있는 자리를 리턴
+    *sub_str_count : 텍스트 내에서 해당 문자가 몇개 인지 리턴
+    *substr_replace : 텍스트 내에서 원본문자를 원하는 문자로 변환
+    $num = "123-1234-1234";
+    $ex = strpos($num,"-"); //3
+    $ex = substr_count($num,"-"); //2
+    $ex = substr_replace($num,"-",3,1); // num문자 3번째 문자를 -로 1개만 변환 
+    
+    substr_replace("대상문자열","변경할내용","변경문자열위치","변경문자갯수")
+
+
 ?>
