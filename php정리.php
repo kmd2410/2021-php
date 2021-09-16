@@ -105,9 +105,13 @@
     // $query = "ALTER TABLE +tablename+ MODIFY +columnname int(10) AUTO_INCREMENT+";
 
     // 테이블 조인
+        // INNER JOIN : 기준 테이블과 조인 테이블 모두 데이터가 존재해야 조회됨
+        // OUTER JOIN : 기준 테이블에만 데이터가 존재하면 조회됨
+
         // $query = "SELECT +tablename+.+columname+,+tablename+.+columname+, FROM +tablename+ INNER JOIN +tablename+
         //             ON +tablename+.+columname+ = +tablename+.+columname+";
 
+        // $query = "SELECT "
         
 
     // 쿼리문 실행
