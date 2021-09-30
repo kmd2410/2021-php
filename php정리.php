@@ -113,6 +113,9 @@
 
         // $query = "SELECT "
         
+    // 테이블 그룹 정렬
+    $query = SELECT +want group columname+, GROUP_CONCAT(+concat colum+ SEPARATOR',') FROM +tablename+ GROUP BY +want group columname+
+
 
     // 쿼리문 실행
     // $result = $connect->query($query) or die($this->_connect->error);
@@ -278,5 +281,15 @@
     // referer 설정 (일부 사이트 referet을 검증 값으로 사용 할 수 있음 셋팅 방법)
     curl_setopt($ch, CURLOPT_REFEPER, "https://exampe.com")
 
-    
+    // JSON형식을 => 배열 or 객체로 변환
+    json_decode();
+    $json = jsondata;
+    $result = json_decode($json, true); // 배열로 변환
+    $result = json_decode($json, false); // NULL로 변환
+
+    // 변수 정보보기
+    var_dump();
+
+
+ 
 ?>
