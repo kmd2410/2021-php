@@ -104,6 +104,7 @@
     2. fetch_assoc => 필드명 인덱스로 배열 반환
     3. fetch_array => 숫자, 필드명 인덱스로 배열 반환
     4. fetch_object => 필드명 인덱스를 가진 객체를 반환
+    5. fetch_all => 한번에 배열로 반환?
     $data = mysqli_fetch_array($result);
     $data = $result->fetch_array(MYSQLI_ASSOC);
 
