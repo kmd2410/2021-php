@@ -295,4 +295,36 @@
     // 한개의 문자열을 구분자로 구분하여 배열로 만들기
     $array = explode(",",$str);
 
+    // 객체를 직렬화 PHP변수들을 string으로 만들어 주는 함수 jian dan de shuo post,get으로 넘어온 배열값을 직렬화..?
+    serialize(); //이건 약간 ajax로 form넘길때 사용하는것 같음...? 보안에 좋은거 같음 인자에 true랑 false랑 값이 다름 .
+    serializeArray();
+    // 직렬화된값을 원래 값으로
+    unserialize();
+    deserialize(); //이건또뭐지 ?
+
+    // 큰따옴표,작은따옴표,공백 등을 \로 표현
+    addslashes();
+    // 풀어주기
+    stripslashes();
+
+    php.ini설정 파일에 745번째 줄에 있는 get_magic_quotes_gpc옵션을 on으로하면 자동 addslashes();
+
+    script
+    // 객체를 json문법에 맞게 string 타입으로 변형
+    JSON.stringify();
+    // json문법의 string을 배열의 Object형태로 변형
+    JSON.parse();
+
+    // 객체 출력
+    Object.toJSON();
+
+    // 3항 연산자
+    {조건문} ? {TRUE} : {FALSE}
+
+    // 반복문
+    while(조건){lorem} == 참일경우 무한루프;
+    do{}while() == 한번은 무조건 실행;
+
 ?>
+
+
