@@ -325,6 +325,11 @@
     while(조건){lorem} == 참일경우 무한루프;
     do{}while() == 한번은 무조건 실행;
 
+    // 500에러 확인
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
+    // 세션캐쉬 쿠키
 ?>
 
 
