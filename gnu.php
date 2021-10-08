@@ -29,5 +29,9 @@
     // 무제한 쿠키
     "https://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=qna_function&wr_id=364167";
 
+    // PHP 에러보기
+    "https://sir.kr/g5_tip/17018";
+
+
 
 ?>
