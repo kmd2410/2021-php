@@ -46,7 +46,6 @@
     // openssl_encrypt($password, "aes-256-cbc", $key, true, str_repeat(chr(0),16));
     // openssl_decrypt($password, "aes-256-cbc", $key, true, str_repeat(chr(0),16));
 
-
     // 암호화 sha256
 
 
@@ -82,6 +81,28 @@
     // $query = "UPDATE +tablename+ SET +column+ = REPLACE(+column+,'ori','after')";
 
     // $query = "UPDATE 20210822_user SET email = 12345 WHERE email = 123";
+
+    // 데이터 수정하기 (여러개)
+    $query = "UPDATE +tablename+ SET +change_column+ = CASE +select_column+ WHEN +select_column_val+ THEN +change_val+, WHEN +select_column_val THEN  +change_val+ ELSE +change_column+ END,
+    +change_column+ = CASE +select_column+ WHEN +select_column_val THEN  +change_val+ ELSE +change_column+ END WHERE +change_column+ (+select_val+, +select_val+)";
+    // +select_column+이 +select_column_val+인 row의 컬럼 +change_column+값을 +change_val+로 변경하고, 나머지는 이전값을 유지 *ELSE를 사용안하면 나머지는 NULL로 변경됨*
+    
+        // INSERT ON DUPLICATE KEY UPDATE
+
+        // IF이용
+        $query = "UPDATE +tablename+ SET 
+            +column+ = IF(+column+ = 1,'ori','after'),
+            +column+ = IF(+column+ = 2,'ori','after'),
+            +column+ = IF(+column+ = 3,'ori','after'),
+            WHERE +column+ IN (1,2,3);
+            "
+
+        // JOIN ... UNION
+
+
+
+
+
     
     // 데이터 삭제
     // $query = "DELETE from +tablename+";
@@ -102,7 +123,8 @@
     // $query = "ALTER TABLE +tablename+ drop column +columnname+";
     
     // 테이블 오토속성 추가
-    // $query = "ALTER TABLE +tablename+ MODIFY +columnname int(10) AUTO_INCREMENT+";
+    // $query = "ALTER TABLE +tablename+ MODIFY +columnname+ int AUTO_INCREMENT";
+    // $query = "ALTER TABLE +tablename+ MODIFY +columnname+ int not null AUTO_INCREMENT primary key";
 
     // 테이블 조인
         // INNER JOIN : 기준 테이블과 조인 테이블 모두 데이터가 존재해야 조회됨
@@ -111,7 +133,8 @@
         // $query = "SELECT +tablename+.+columname+,+tablename+.+columname+, FROM +tablename+ INNER JOIN +tablename+
         //             ON +tablename+.+columname+ = +tablename+.+columname+";
 
-        // $query = "SELECT "
+        // $query = "SELECT +tablename+ FROM +column+ UNION SELECT +tablename+ FROM +column+
+        // ORDER BY +tablename+"; *UNION = 중복시 제거하고 출력 UNION ALL = 중복값 무시 모두 출력*
         
     // 테이블 그룹 정렬
     $query = SELECT +want group columname+, GROUP_CONCAT(+concat colum+ SEPARATOR',') FROM +tablename+ GROUP BY +want group columname+
@@ -330,6 +353,22 @@
     ini_set("display_errors", 1);
 
     // 세션캐쉬 쿠키
+
+    // 문자열 변경(REPLACE)
+
+    $query = "SELECT REPLACE(+column+,'original','want change') AS +set_column+ FROM +tablename+";
+    $query = "UPDATE +tablename+ SET +column+ = REPLACE(+column+,'original','want change')";
+    // WHERE 가능
+
+    // like
+    $query = "SELECT * FROM +tablename+ WHERE +column+ LIKE 'lorem%'"; // lorem으로 시작하는 데이터
+    $query = "SELECT * FROM +tablename+ WHERE +column+ LIKE '%lorem'"; // lorem으로 끝나는 데이터
+    $query = "SELECT * FROM +tablename+ WHERE +column+ LIKE '%lorem%'"; // lorem이 들어가는 데이터
+    // => %lorem% 사용시 앞 뒤 공배 까지 포함해서 검색 trim사용
+    // LIKE를 복수 사용시에는 LIKE 'str' OR LIKE 'str'; 중복 사용해야함
+
+    // REGEXP (like 보다 복잡한 패턴 검색 => 복수검색에 유용)
+    $query = "SELECT * FROM +tablename+ WHERE +column+ REGEXP 'str|str'"; // |로 구분
 ?>
 
 
