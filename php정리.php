@@ -81,6 +81,7 @@
     // $query = "UPDATE +tablename+ SET +column+ = REPLACE(+column+,'ori','after')";
 
     // $query = "UPDATE 20210822_user SET email = 12345 WHERE email = 123";
+    // $query = "UPDATE +tablename+ SET (a,b,c) = (d,e,f) WHERE ...;
 
     // 데이터 수정하기 (여러개)
     $query = "UPDATE +tablename+ SET +change_column+ = CASE +select_column+ WHEN +select_column_val+ THEN +change_val+, WHEN +select_column_val THEN  +change_val+ ELSE +change_column+ END,
@@ -315,7 +316,7 @@
 
     // 배열을 구분자로 나누어 한개의 문자열로 만들기
     $str = implode(",",$array);
-    // 한개의 문자열을 구분자로 구분하여 배열로 만들기
+    // 한개의 문자열(텍스트)을 구분자로 구분하여 배열로 만들기
     $array = explode(",",$str);
 
     // 객체를 직렬화 PHP변수들을 string으로 만들어 주는 함수 jian dan de shuo post,get으로 넘어온 배열값을 직렬화..?
@@ -369,6 +370,9 @@
 
     // REGEXP (like 보다 복잡한 패턴 검색 => 복수검색에 유용)
     $query = "SELECT * FROM +tablename+ WHERE +column+ REGEXP 'str|str'"; // |로 구분
+
+    //
+    array_map("trim", explode(",", $str));
 ?>
 
 
