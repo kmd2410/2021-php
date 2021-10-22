@@ -76,6 +76,10 @@
     
     // $query = "INSERT INTO 20210822_user VALUES (5,5,5,5)";
 
+
+    // 데이터 삽입하기 여러개 콤마사용 
+    // $query = "INSERT INTO +table+ (+col+,+col+) VALUES (+vlu+,+vlu+),(+vlu+,+vlu+),(+vlu+,+vlu+)";
+
     // 데이터 수정하기
     // $query = "UPDATE +tablename+ SET +column+ = +vlu+";
     // $query = "UPDATE +tablename+ SET +column+ = REPLACE(+column+,'ori','after')";
