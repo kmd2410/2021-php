@@ -106,9 +106,22 @@
 
 
 
-
+    // 테이블 정렬
+    // 오름차순 정렬 (ASC 생략가능) 1,2,3,4
+    // $query = "SELECT * FROM +tablename+ ORDER BY +col+ ASC"; 
+    // 내림차순 정렬
+    // $query = "SELECT * FROM +tablename+ ORDER BY +col+ DESC";
+    // 여러 컬럼으로 정렬
+    // $query = "SELECT * FROM +tablename+ ORDER BY +col+[,+col+,+col+...]";
+    // 조건식
+    // $query = "SELECT * FROM +tablename+ WHERE x=x ORDER BY +col+[,+col+,+col+...]";
+    // 특정 값 우선정렬
+    // $query = "SELECT * FROM +tablename+ ORDER BY FIELD(+col+, "x","x") DESC +col+ ASC";
 
     
+
+
+
     // 데이터 삭제
     // $query = "DELETE from +tablename+";
     // $query = "DELETE from +tablename+ WHERE +column+ = +vlu+";
